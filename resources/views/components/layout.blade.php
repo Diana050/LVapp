@@ -59,15 +59,11 @@
                     <i class="fa-solid fa-calendar"></i> Book Talk Program</a>
             </li>
 
-        <li>
-            <a href="/news/manage" class="hover:text-laravel">
-                <i class="fa-solid fa-gear"></i>Manage announcements</a>
-        </li>
-
             <li>
-                <a href="/books/manage" class="hover:text-laravel">
-                    <i class="fa-solid fa-gear"></i>Manage books</a>
+                <a href="/manage" class="hover:text-laravel">
+                    <i class="fa-solid fa-user"></i>User Profile</a>
             </li>
+
         <li>
             <form class="inline" method="POST"  action="/logout">
                 @csrf

@@ -3,6 +3,7 @@
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\ManageController;
 use Illuminate\Support\Facades\Route;
 use App\Models\news;
 
@@ -20,6 +21,8 @@ use App\Models\news;
 Route::get('/news', [NewsController::class, 'index']);
 
 Route::get('/books', [BooksController::class, 'index']);
+
+Route::get('/manage', [ManageController::class, 'index'])->middleware('auth');
 
 //Show create form
 Route::get('/news/create', [NewsController::class, 'create'])->middleware('auth');
@@ -55,7 +58,6 @@ Route::get('/books/manage', [BooksController::class, 'manage'])->middleware('aut
 Route::get('/news/{new}', [NewsController::class, 'show'] );
 
 Route::get('/books/{book}', [BooksController::class, 'show'] );
-
 
 //Show User Register
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
