@@ -45,17 +45,29 @@
         </li>
 
             <li>
-                <a href="/books" class="hover:text-laravel">
-                    <i class="fa-solid fa-books"></i> Books</a>
+                <a href="/news" class="hover:text-laravel">
+                    <i class="fa-solid fa-house"></i> Home</a>
             </li>
-{{--            <li>--}}
-{{--                <a href="/leave" class="hover:text-laravel">--}}
-{{--                    <i class="fa-solid fa-dove"></i> Leave</a>--}}
-{{--            </li>--}}
+
+            <li>
+                <a href="/books" class="hover:text-laravel">
+                    <i class="fa-solid fa-book"></i> Books</a>
+            </li>
+
+            <li>
+                <a href="/news" class="hover:text-laravel">
+                    <i class="fa-solid fa-calendar"></i> Book Talk Program</a>
+            </li>
+
         <li>
             <a href="/news/manage" class="hover:text-laravel">
                 <i class="fa-solid fa-gear"></i>Manage announcements</a>
         </li>
+
+            <li>
+                <a href="/books/manage" class="hover:text-laravel">
+                    <i class="fa-solid fa-gear"></i>Manage books</a>
+            </li>
         <li>
             <form class="inline" method="POST"  action="/logout">
                 @csrf
@@ -67,8 +79,18 @@
 
         @else
             <li>
+                <a href="/news" class="hover:text-laravel">
+                    <i class="fa-solid fa-house"></i> Home</a>
+            </li>
+
+            <li>
                 <a href="/books" class="hover:text-laravel">
                     <i class="fa-solid fa-book"></i> Books</a>
+            </li>
+
+            <li>
+                <a href="/news" class="hover:text-laravel">
+                    <i class="fa-solid fa-calendar"></i> Book Talk Program</a>
             </li>
 
         <li>

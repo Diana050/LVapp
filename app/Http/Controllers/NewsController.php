@@ -11,7 +11,7 @@ class NewsController extends Controller
 {
     //All news
     public function index(){
-        //dd(\request());
+        //dd(request()->tag);
         return view('news.index' , [
             'news' => news::latest()->filter(request(['tag' , 'search']))->paginate(6)
         ]);
