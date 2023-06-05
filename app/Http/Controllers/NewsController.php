@@ -11,44 +11,44 @@ class NewsController extends Controller
 {
     //All news
     public function index(){
-       //dd(\request());
+        //dd(\request());
         return view('news.index' , [
             'news' => news::latest()->filter(request(['tag' , 'search']))->paginate(6)
         ]);
     }
 
     //One news
-   public function show(news $new){
-       return view('news.show', [
-           'new' => $new
-       ]);
-   }
-       //Show create form
-       public function create(){
-            return view('news.create');
-       }
+    public function show(news $new){
+        return view('news.show', [
+            'new' => $new
+        ]);
+    }
+    //Show create form
+    public function create(){
+        return view('news.create');
+    }
 
-       //store news data
+    //store news data
     public function  store(Request $request){
 
-            $formFields = $request->validate([
-                'title' => 'required',
-                'location' => 'required',
-                'contact' => ['required', 'email'],
-                'tags' => 'required',
-                'description' => 'required',
-                'day' => 'required',
+        $formFields = $request->validate([
+            'title' => 'required',
+            'location' => 'required',
+            'contact' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required',
+            'day' => 'required',
 
-            ]);
-            if($request->hasFile('logo'))
-            {
-                $formFields['logo'] = $request->file('logo')->store('logos', 'public');
-            }
+        ]);
+        if($request->hasFile('logo'))
+        {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
 
-            $formFields['user_id'] =  auth()->id();
+        $formFields['user_id'] =  auth()->id();
 
-            news::create($formFields);
-            return redirect('/news')->with('message' , 'Announcement created successfully!');
+        news::create($formFields);
+        return redirect('/news')->with('message' , 'Announcement created successfully!');
     }
 
     // Show edit form

@@ -45,13 +45,13 @@
         </li>
 
             <li>
-                <a href="/calendar" class="hover:text-laravel">
-                    <i class="fa-solid fa-calendar"></i> Calendar</a>
+                <a href="/books" class="hover:text-laravel">
+                    <i class="fa-solid fa-books"></i> Books</a>
             </li>
-            <li>
-                <a href="/leave" class="hover:text-laravel">
-                    <i class="fa-solid fa-dove"></i> Leave</a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="/leave" class="hover:text-laravel">--}}
+{{--                    <i class="fa-solid fa-dove"></i> Leave</a>--}}
+{{--            </li>--}}
         <li>
             <a href="/news/manage" class="hover:text-laravel">
                 <i class="fa-solid fa-gear"></i>Manage announcements</a>
@@ -66,15 +66,19 @@
         </li>
 
         @else
+            <li>
+                <a href="/books" class="hover:text-laravel">
+                    <i class="fa-solid fa-book"></i> Books</a>
+            </li>
 
         <li>
             <a href="/register" class="hover:text-laravel">
                 <i class="fa-solid fa-user-plus"></i> Register</a>
         </li>
-{{--        <li>--}}
-{{--            <a href="/login" class="hover:text-laravel">--}}
-{{--                <i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a>--}}
-{{--        </li>--}}
+        <li>
+            <a href="/login" class="hover:text-laravel">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>Login</a>
+        </li>
         @endauth
     </ul>
 </nav>

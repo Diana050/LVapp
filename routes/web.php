@@ -16,7 +16,7 @@ use App\Models\news;
 |
 */
 
-Route::get('/news', [NewsController::class, 'index'])->middleware('auth');
+Route::get('/news', [NewsController::class, 'index']);
 
 //Show create form
 Route::get('/news/create', [NewsController::class, 'create'])->middleware('auth');
@@ -37,7 +37,7 @@ Route::delete('/news/{new}', [NewsController::class, 'destroy'])->middleware('au
 Route::get('/news/manage', [NewsController::class, 'manage'])->middleware('auth');
 
 //single news
-Route::get('/news/{new}', [NewsController::class, 'show'] )->middleware('auth');
+Route::get('/news/{new}', [NewsController::class, 'show'] );
 
 //Show User Register
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
