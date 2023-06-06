@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\news;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -21,8 +22,11 @@ class NewsController extends Controller
     public function show(news $new){
         return view('news.show', [
             'new' => $new
+
         ]);
     }
+
+//
     //Show create form
     public function create(){
         return view('news.create');
@@ -99,4 +103,6 @@ class NewsController extends Controller
     public function manage(){
         return view('news.manage', ['news'=>auth()->user()->news()->get()]);
     }
+
+
 }

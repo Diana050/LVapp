@@ -17,7 +17,7 @@
                 <i class="fa-solid fa-building"></i> {{$book->publishing_house}}
             </div>
             <div class="text-lg my-4">
-                <i class="fa-solid fa-user"></i> {{$book->user->FirstName}}
+                <i class="fa-solid fa-user"></i> {{$book->user->UserName}}
             </div>
             <div class="border border-gray-200 w-full mb-6"></div>
             <div>

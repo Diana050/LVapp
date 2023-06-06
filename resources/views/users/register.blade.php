@@ -10,46 +10,20 @@
         <form method="POST" action="/users">
             @csrf
             <div class="mb-6">
-                <label for="FirstName" class="inline-block text-lg mb-2">
-                    First Name
+                <label for="UserName" class="inline-block text-lg mb-2">
+                    User Name
                 </label>
                 <input
                     type="text"
                     class="border border-gray-200 rounded p-2 w-full"
-                    name="FirstName" value="{{old('FistName')}}"
+                    name="UserName" value="{{old('UserName')}}"
                 />
-                @error('FirstName')
+                @error('UserName')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 
-            <div class="mb-6">
-                <label for="LastName" class="inline-block text-lg mb-2">
-                    Last Name
-                </label>
-                <input
-                    type="text"
-                    class="border border-gray-200 rounded p-2 w-full"
-                    name="LastName" value="{{old('LastName')}}"
-                />
-                @error('LastName')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                @enderror
-            </div>
 
-            <div class="mb-6">
-                <label for="Company" class="inline-block text-lg mb-2">
-                    Company
-                </label>
-                <input
-                    type="text"
-                    class="border border-gray-200 rounded p-2 w-full"
-                    name="company" value="{{old('company')}}"
-                />
-                @error('company')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                @enderror
-            </div>
 
 
 

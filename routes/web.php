@@ -4,6 +4,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ManageController;
+use App\Http\Controllers\CommentsController;
 use Illuminate\Support\Facades\Route;
 use App\Models\news;
 
@@ -24,6 +25,10 @@ Route::get('/books', [BooksController::class, 'index']);
 
 Route::get('/manage', [ManageController::class, 'index'])->middleware('auth');
 
+Route::get('/userProfile', [UserController::class, 'index'])->middleware('auth');
+
+Route::get('/comments/{new}' , [CommentsController::class, 'index']);
+
 //Show create form
 Route::get('/news/create', [NewsController::class, 'create'])->middleware('auth');
 
@@ -39,10 +44,12 @@ Route::get('/news/{new}/edit', [NewsController::class, 'edit'])->middleware('aut
 
 Route::get('/books/{book}/edit', [BooksController::class, 'edit'])->middleware('auth');
 
+
 //Update news
 Route::put('/news/{new}', [NewsController::class, 'update'])->middleware('auth');
 
 Route::put('/books/{book}', [BooksController::class, 'update'])->middleware('auth');
+
 
 //Delete news
 Route::delete('/news/{new}', [NewsController::class, 'destroy'])->middleware('auth');
@@ -58,6 +65,8 @@ Route::get('/books/manage', [BooksController::class, 'manage'])->middleware('aut
 Route::get('/news/{new}', [NewsController::class, 'show'] );
 
 Route::get('/books/{book}', [BooksController::class, 'show'] );
+
+Route::get('/comments/{new}', [CommentsController::class, 'show']);
 
 //Show User Register
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');

@@ -1,4 +1,7 @@
 @props(['new'])
+@props(['comment'])
+
+
 
 <div class="mx-4">
     <x-card>
@@ -23,24 +26,23 @@
                         {{$new->description}}
                     </p>
 
-                    <a href="mailto:{{$new->contact}}" class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80">
-                        <i class="fa-solid fa-envelope"></i> Contact Employer</a>
+                    <a href="/comments/{{$new->id}}" class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80">
+                        <i class="fa-solid fa-comments"></i> Comments</a>
 
                 </div>
             </div>
         </div>
     </x-card>
 {{--    <x-card class="mt-4 p-2 flex space-x-6">--}}
-{{--        <a href="/news/{{$new->id}}/edit">--}}
-{{--            <i class="fa-solid fa-pencil"></i> Edit--}}
-{{--        </a>--}}
-
-{{--        <form method="POST" action="/news/{{$new->id}}">--}}
-{{--            @csrf--}}
-{{--            @method('DELETE')--}}
-{{--            <button class="text-red-600">--}}
-{{--                <i class="fa-solid fa-trash"></i>Delete--}}
-{{--            </button>--}}
-{{--        </form>--}}
+{{--        <table class="w-full table-auto rounded-sm">--}}
+{{--            <tbody>--}}
+{{--            @foreach ($comments as $comment)--}}
+{{--                <tr>--}}
+{{--                    <td>{{ $comment->user->UserName }}</td>--}}
+{{--                    <td>{{ $comment->comment }}</td>--}}
+{{--                </tr>--}}
+{{--            @endforeach--}}
+{{--            </tbody>--}}
+{{--        </table>--}}
 {{--    </x-card>--}}
 </div>

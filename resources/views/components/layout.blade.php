@@ -40,7 +40,7 @@
                 Welcome
             </span>
             <span class="font-bold uppercase ">
-                {{auth()->user()->FirstName}}
+                {{auth()->user()->UserName}}
             </span>
         </li>
 
@@ -55,7 +55,7 @@
             </li>
 
             <li>
-                <a href="/news" class="hover:text-laravel">
+                <a href="/calendar" class="hover:text-laravel">
                     <i class="fa-solid fa-calendar"></i> Book Talk Program</a>
             </li>
 
@@ -85,7 +85,7 @@
             </li>
 
             <li>
-                <a href="/news" class="hover:text-laravel">
+                <a href="/calendar" class="hover:text-laravel">
                     <i class="fa-solid fa-calendar"></i> Book Talk Program</a>
             </li>
 

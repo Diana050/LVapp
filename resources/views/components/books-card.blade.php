@@ -18,7 +18,7 @@
                 <i class="fa-solid fa-building"></i> {{$book->publishing_house}}
             </div>
             <div class="text-lg mt-4">
-                <i class="fa-solid fa-user"></i> {{$book->user->FirstName}}
+                <i class="fa-solid fa-user"></i> {{$book->user->UserName}}
             </div>
         </div>
     </div>

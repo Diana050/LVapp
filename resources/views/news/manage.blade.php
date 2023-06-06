@@ -5,7 +5,7 @@
             <h1
                 class="text-3xl text-center font-bold my-6 uppercase"
             >
-                Manage Posted Topics
+                Manage your Posted Posts
             </h1>
         </header>
 

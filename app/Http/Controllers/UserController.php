@@ -13,12 +13,14 @@ class UserController extends Controller
         return view('users.register');
     }
 
+    public function index(){
+        return view('manage.userProfile');
+    }
+
     //Store Create new user
     public function store(Request $request){
         $formFields =  $request->validate([
-            'FirstName' => ['required', 'min:3'],
-            'LastName' => ['required', 'min:3'],
-            'company' => ['required'],
+            'UserName' => ['required', 'min:3'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'confirmed', 'min:8']
         ]);
@@ -35,6 +37,7 @@ class UserController extends Controller
         return redirect('/news')->with('message', 'User created and logged in!');
 
     }
+
 
     //log out
     public function logout(Request $request){
