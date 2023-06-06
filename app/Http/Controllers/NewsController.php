@@ -19,12 +19,12 @@ class NewsController extends Controller
     }
 
     //One news
-    public function show(news $new){
-        return view('news.show', [
-            'new' => $new
+        public function show(news $new){
+                return view('news.show', [
+                'new' => $new,
 
-        ]);
-    }
+            ]);
+        }
 
 //
     //Show create form

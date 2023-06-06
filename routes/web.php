@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\CalendarController;
 use Illuminate\Support\Facades\Route;
 use App\Models\news;
 
@@ -27,7 +28,9 @@ Route::get('/manage', [ManageController::class, 'index'])->middleware('auth');
 
 Route::get('/userProfile', [UserController::class, 'index'])->middleware('auth');
 
-Route::get('/comments/{new}' , [CommentsController::class, 'index']);
+Route::get('/comments' , [CommentsController::class, 'index'])->middleware('auth');
+
+Route::get('/calendar' , [CalendarController::class, 'index']);
 
 //Show create form
 Route::get('/news/create', [NewsController::class, 'create'])->middleware('auth');
@@ -38,6 +41,9 @@ Route::get('/books/create', [BooksController::class, 'create'])->middleware('aut
 Route::post('/news', [NewsController::class, 'store'] )->middleware('auth');
 
 Route::post('/books', [BooksController::class, 'store'] )->middleware('auth');
+
+Route::post('/comments/store/{news_id}', [CommentsController::class, 'store'])->middleware('auth')->name('comments.store');
+
 
 //show edit form
 Route::get('/news/{new}/edit', [NewsController::class, 'edit'])->middleware('auth');
@@ -66,7 +72,7 @@ Route::get('/news/{new}', [NewsController::class, 'show'] );
 
 Route::get('/books/{book}', [BooksController::class, 'show'] );
 
-Route::get('/comments/{new}', [CommentsController::class, 'show']);
+//Route::get('/comments', [CommentsController::class, 'show']);
 
 //Show User Register
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');

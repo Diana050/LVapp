@@ -26,7 +26,7 @@
                         {{$new->description}}
                     </p>
 
-                    <a href="/comments/{{$new->id}}" class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80">
+                    <a href="/comments?news_id={{$new->id}}" class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80">
                         <i class="fa-solid fa-comments"></i> Comments</a>
 
                 </div>
