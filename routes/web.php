@@ -19,7 +19,7 @@ use App\Models\news;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//Index
 Route::get('/news', [NewsController::class, 'index']);
 
 Route::get('/books', [BooksController::class, 'index']);
@@ -32,12 +32,13 @@ Route::get('/comments' , [CommentsController::class, 'index'])->middleware('auth
 
 Route::get('/calendar' , [CalendarController::class, 'index']);
 
+
 //Show create form
 Route::get('/news/create', [NewsController::class, 'create'])->middleware('auth');
 
 Route::get('/books/create', [BooksController::class, 'create'])->middleware('auth');
 
-//store news data
+//store  data
 Route::post('/news', [NewsController::class, 'store'] )->middleware('auth');
 
 Route::post('/books', [BooksController::class, 'store'] )->middleware('auth');
@@ -51,28 +52,27 @@ Route::get('/news/{new}/edit', [NewsController::class, 'edit'])->middleware('aut
 Route::get('/books/{book}/edit', [BooksController::class, 'edit'])->middleware('auth');
 
 
-//Update news
+//Update
 Route::put('/news/{new}', [NewsController::class, 'update'])->middleware('auth');
 
 Route::put('/books/{book}', [BooksController::class, 'update'])->middleware('auth');
 
 
-//Delete news
+//Delete
 Route::delete('/news/{new}', [NewsController::class, 'destroy'])->middleware('auth');
 
 Route::delete('/books/{book}', [BooksController::class, 'destroy'])->middleware('auth');
 
-//manage news
+//manage pages
 Route::get('/news/manage', [NewsController::class, 'manage'])->middleware('auth');
 
 Route::get('/books/manage', [BooksController::class, 'manage'])->middleware('auth');
 
-//single news
+//single page news and books
 Route::get('/news/{new}', [NewsController::class, 'show'] );
 
 Route::get('/books/{book}', [BooksController::class, 'show'] );
 
-//Route::get('/comments', [CommentsController::class, 'show']);
 
 //Show User Register
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');

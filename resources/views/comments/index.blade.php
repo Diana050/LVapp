@@ -41,4 +41,5 @@
                 </tbody>
             </table>
         </x-card>
+    {{ $comments->appends(['news_id' => $newsId])->links() }}
 </x-layout>

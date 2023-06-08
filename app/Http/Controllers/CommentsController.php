@@ -20,9 +20,7 @@ class CommentsController extends Controller
     {
 
         $newsId = $request->query('news_id');
-        $comments = Comment::where('news_id', $newsId)
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $comments = Comment::where('news_id', $newsId)->orderBy('created_at', 'desc')->paginate(30);
 
         return view('comments.index', [
             'newsId' => $newsId,
