@@ -45,6 +45,8 @@ Route::post('/books', [BooksController::class, 'store'] )->middleware('auth');
 
 Route::post('/comments/store/{news_id}', [CommentsController::class, 'store'])->middleware('auth')->name('comments.store');
 
+Route::post('/calendar', [CalendarController::class, 'store'] )->middleware('auth')->name('calendar.store');;
+
 
 //show edit form
 Route::get('/news/{new}/edit', [NewsController::class, 'edit'])->middleware('auth');
@@ -57,11 +59,15 @@ Route::put('/news/{new}', [NewsController::class, 'update'])->middleware('auth')
 
 Route::put('/books/{book}', [BooksController::class, 'update'])->middleware('auth');
 
+Route::patch('/calendar/update/{id}', [CalendarController::class, 'update'])->middleware('auth')->name('calendar.update');
+
 
 //Delete
 Route::delete('/news/{new}', [NewsController::class, 'destroy'])->middleware('auth');
 
 Route::delete('/books/{book}', [BooksController::class, 'destroy'])->middleware('auth');
+
+Route::delete('/calendar/destroy/{id}', [CalendarController::class, 'destroy'])->middleware('auth')->name('calendar.destroy');
 
 //manage pages
 Route::get('/news/manage', [NewsController::class, 'manage'])->middleware('auth');
