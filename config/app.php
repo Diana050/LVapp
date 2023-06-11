@@ -163,11 +163,13 @@ return [
         /*
          * Application Service Providers...
          */
+        //BotMan\BotMan\BotManServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
     ])->toArray(),
 
     /*
@@ -182,6 +184,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        //'BotMan' => BotMan\BotMan\Facades\BotMan::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\ChatBotController;
 use Illuminate\Support\Facades\Route;
 use App\Models\news;
 
@@ -19,6 +20,12 @@ use App\Models\news;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//bot
+//Route::get('/', function (){
+//    return view('botman-welcome');
+//});
+
+Route::match(['get','post'], '/botman', [ChatBotController::class, 'index']);
 //Index
 Route::get('/news', [NewsController::class, 'index']);
 
