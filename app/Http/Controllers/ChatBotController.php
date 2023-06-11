@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Books;
 use Illuminate\Http\Request;
 
 class ChatBotController extends Controller
 {
     //
     public function index(){
+
+//        $tag = ''; // Set the tag you want to search for
+//        $titles = Books::where('tags', 'like', "%$tag%")->pluck('title')->toArray();
+
         $botman = app('botman');
         $botman->fallback(function($bot){
             $message = $bot->getMessage();
@@ -27,7 +32,7 @@ class ChatBotController extends Controller
         $botman->hears('.*news|topic|topic|forum.*', function ($bot){
             $bot->reply('In the news page you can find a list of news and topics posted by our community. You can join them by adding comments at their posts or by starting a new topic ');
         });
-        $botman->hears('.*book|books.*', function ($bot){
+        $botman->hears('.*books.*', function ($bot){
             $bot->reply('In the books page you can find all the books that are ready to be lend or sail by our community. Every book has its own page where you can find more details and a form ready for you to request the book ');
         });
         $botman->hears('.*request|obtain|borrow|buy.*', function ($bot){
@@ -38,6 +43,30 @@ class ChatBotController extends Controller
             $bot->reply('You can join the community of readers and participate in online meetings with different themes or even initiate your own meeting.');
             $bot->reply('You can contribute to discussions on various topics or start a new one.');
         });
+
+//        $botman->hears('.*fiction|romance|science|novel|mystery|fantasy|literary|historical|history|no-fiction|horror|young adult.*', function ($bot) use ($titles) {
+//            if (!empty($titles)) {
+//                $randomTitle = $titles[array_rand($titles)];
+//                $bot->reply("Here's a book with the specified tag: $randomTitle");
+//            } else {
+//                $bot->reply("Sorry, there are no books with the specified tag.");
+//            }
+//        });
+
+        $botman->hears('.*fiction|science fiction|romance|science|novel|mystery|fantasy|literary|historical|history|no-fiction|horror|young adult|drama|humor|contemporary|essay|travel|autobiography|spirituality|poetry|adventure|paranormal romance|satire|educational|kids|personal development.*', function ($bot) {
+            $tag = $bot->getMessage()->getText(); // Get the tag mentioned in the user's message
+            $titles = Books::where('tags', 'like', "%$tag%")->pluck('title')->toArray();
+
+            if (!empty($titles)) {
+                $randomTitle = $titles[array_rand($titles)];
+                $bot->reply("Here's a book with the specified tag: $randomTitle");
+            } else {
+                $bot->reply("Sorry, there are no books with the specified tag.");
+            }
+        });
+
+
+
         $botman->listen();
     }
 }
