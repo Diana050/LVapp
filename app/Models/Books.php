@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Books extends Model
 {
     use HasFactory;
-    protected $fillable= ['title', 'author', 'publishing_house', 'languages', 'nOfPage', 'description', 'cover', 'tags', 'user_id'];
+    protected $fillable=
+        ['title', 'author', 'publishing_house', 'languages', 'nOfPage', 'description', 'cover', 'tags', 'user_id'];
 
     public function scopeFilter($query, array $filters){
         if($filters['tag'] ?? false){

@@ -25,16 +25,13 @@
             },
         };
     </script>
-    <title>WorkFlow</title>
+    <title>Read&Share</title>
 </head>
 <body class="mb-48">
 <nav class="flex justify-between items-center mb-4">
-    <a href="/news"
-    ><img class="w-24" src="{{asset('images/WFLogo.jpg')}}" alt="" class="logo"
-        /></a>
+    <a href="/news"><img style="width: 13vw; height: 11vh;" src="{{asset('images/Read-Share-Logo.jpg')}}" alt="" class="logo"/></a>
     <ul class="flex space-x-6 mr-6 text-lg">
         @auth
-
         <li>
             <span class="font-bold ">
                 Welcome

@@ -10,9 +10,6 @@ class ChatBotController extends Controller
     //
     public function index(){
 
-//        $tag = ''; // Set the tag you want to search for
-//        $titles = Books::where('tags', 'like', "%$tag%")->pluck('title')->toArray();
-
         $botman = app('botman');
         $botman->fallback(function($bot){
             $message = $bot->getMessage();
@@ -43,15 +40,6 @@ class ChatBotController extends Controller
             $bot->reply('You can join the community of readers and participate in online meetings with different themes or even initiate your own meeting.');
             $bot->reply('You can contribute to discussions on various topics or start a new one.');
         });
-
-//        $botman->hears('.*fiction|romance|science|novel|mystery|fantasy|literary|historical|history|no-fiction|horror|young adult.*', function ($bot) use ($titles) {
-//            if (!empty($titles)) {
-//                $randomTitle = $titles[array_rand($titles)];
-//                $bot->reply("Here's a book with the specified tag: $randomTitle");
-//            } else {
-//                $bot->reply("Sorry, there are no books with the specified tag.");
-//            }
-//        });
 
         $botman->hears('.*fiction|science fiction|romance|science|novel|mystery|fantasy|literary|historical|history|no-fiction|horror|young adult|drama|humor|contemporary|essay|travel|autobiography|spirituality|poetry|adventure|paranormal romance|satire|educational|kids|personal development.*', function ($bot) {
             $tag = $bot->getMessage()->getText(); // Get the tag mentioned in the user's message

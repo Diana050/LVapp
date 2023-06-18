@@ -6,13 +6,13 @@
             News & <span class="text-black">Activities</span>
         </h1>
         <p class="text-2xl text-gray-200 font-bold my-4">
-            Find news that might intrest you or look after some activities that suits you
+            Find news that might interest you or look after some topics that may captivate you
         </p>
         <div>
             <a
                 href="/news/create"
                 class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
-            >Create a new announcement</a
+            >Create a new topic</a
             >
         </div>
     </div>
