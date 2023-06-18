@@ -29,6 +29,9 @@
                         {{$book->description}}
                     </p>
 
+                    <a href="/reviews?books_id={{$book->id}}" class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80">
+                        <i class="fa-solid fa-comments"></i> Reviews</a>
+
 {{--                    <a href="mailto:{{$new->contact}}" class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80">--}}
 {{--                        <i class="fa-solid fa-envelope"></i> Contact Employer</a>--}}
 

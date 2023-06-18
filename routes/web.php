@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ChatBotController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,8 @@ Route::get('/userProfile', [UserController::class, 'index'])->middleware('auth')
 
 Route::get('/comments' , [CommentsController::class, 'index'])->middleware('auth');
 
+Route::get('/reviews' , [ReviewsController::class, 'index'])->middleware('auth');
+
 Route::get('/calendar' , [CalendarController::class, 'index']);
 
 
@@ -51,6 +54,8 @@ Route::post('/news', [NewsController::class, 'store'] )->middleware('auth');
 Route::post('/books', [BooksController::class, 'store'] )->middleware('auth');
 
 Route::post('/comments/store/{news_id}', [CommentsController::class, 'store'])->middleware('auth')->name('comments.store');
+
+Route::post('/reviews/store/{books_id}', [ReviewsController::class, 'store'])->middleware('auth')->name('reviews.store');
 
 Route::post('/calendar', [CalendarController::class, 'store'] )->middleware('auth')->name('calendar.store');;
 
