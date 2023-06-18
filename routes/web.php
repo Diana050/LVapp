@@ -57,6 +57,8 @@ Route::post('/comments/store/{news_id}', [CommentsController::class, 'store'])->
 
 Route::post('/reviews/store/{books_id}', [ReviewsController::class, 'store'])->middleware('auth')->name('reviews.store');
 
+Route::post('/books/{book}/request', [BooksController::class, 'request'])->name('books.request')->middleware('auth');
+
 Route::post('/calendar', [CalendarController::class, 'store'] )->middleware('auth')->name('calendar.store');;
 
 

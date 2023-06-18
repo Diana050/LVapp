@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Mail\BookRequest;
 use App\Models\Books;
+use App\Models\BookUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class BooksController extends Controller
 {
@@ -18,6 +22,19 @@ class BooksController extends Controller
         return view('books.show', [
             'book' => $book
         ]);
+    }
+
+    public function request(Request $request, Books $book)
+    {
+        // Store the user ID and book ID in the book_user table
+//        $book->user()->associate(auth()->user());
+        BookUser::create([
+            'user_id' => auth()->id(),
+            'book_id' => $book->id
+        ]);
+
+        // Redirect back or to a specific page
+        return redirect()->back()->with('message', 'Book requested successfully!');
     }
 
     public function create(){
