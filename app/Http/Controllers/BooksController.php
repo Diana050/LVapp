@@ -114,5 +114,28 @@ class BooksController extends Controller
         return view('books.manage', ['books'=>auth()->user()->books()->get()]);
     }
 
+    public function topAuthors()
+    {
+        $topAuthors = Books::select('author', \DB::raw('COUNT(*) as total_books'))
+            ->groupBy('author')
+            ->orderByDesc('total_books')
+            ->limit(5) // You can adjust the limit as per your preference
+            ->get();
+
+        return view('statistics.top-authors', ['topAuthors' => $topAuthors]);
+    }
+
+    public function bookCountByLanguage()
+    {
+        $bookCountByLanguage = \DB::table('books')
+            ->select('languages', \DB::raw('COUNT(*) as count'))
+            ->groupBy('languages')
+            ->get();
+
+        $languages = $bookCountByLanguage->pluck('languages');
+        $counts = $bookCountByLanguage->pluck('count');
+
+        return view('statistics.bookCountByLanguage', compact('languages', 'counts'));
+    }
 
 }

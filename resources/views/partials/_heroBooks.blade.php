@@ -9,11 +9,11 @@
             Find books that might interest you and look after the person who will lend you
         </p>
         <div>
-            <a
-                href="/books/create"
-                class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
-            >Register a new book</a
-            >
+            <a href="/books/create" class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
+            >Register a new book</a>
+            <a href="/top-authors" class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
+            >Tops insights</a>
+
         </div>
     </div>
 </section>

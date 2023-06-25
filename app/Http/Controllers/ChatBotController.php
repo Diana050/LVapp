@@ -41,7 +41,7 @@ class ChatBotController extends Controller
             $bot->reply('You can contribute to discussions on various topics or start a new one.');
         });
 
-        $botman->hears('.*fiction|science fiction|romance|science|novel|mystery|fantasy|literary|historical|history|no-fiction|horror|young adult|drama|humor|contemporary|essay|travel|autobiography|spirituality|poetry|adventure|paranormal romance|satire|educational|kids|personal development.*', function ($bot) {
+        $botman->hears('.*victorian|gothic|fiction|science fiction|romance|science|novel|mystery|fantasy|literary|historical|history|no-fiction|horror|young adult|drama|humor|contemporary|essay|travel|autobiography|spirituality|poetry|adventure|paranormal romance|satire|educational|kids|personal development|educational.*', function ($bot) {
             $tag = $bot->getMessage()->getText(); // Get the tag mentioned in the user's message
             $titles = Books::where('tags', 'like', "%$tag%")->pluck('title')->toArray();
 

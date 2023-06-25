@@ -42,6 +42,11 @@ Route::get('/reviews' , [ReviewsController::class, 'index'])->middleware('auth')
 
 Route::get('/calendar' , [CalendarController::class, 'index']);
 
+Route::get('/top-authors', [BooksController::class, 'topAuthors']);
+
+Route::get('/book-count-by-language', [BooksController::class, 'bookCountByLanguage']);
+
+
 
 //Show create form
 Route::get('/news/create', [NewsController::class, 'create'])->middleware('auth');
