@@ -19,8 +19,11 @@ class BooksController extends Controller
     }
 
     public function show(Books $book){
+        $editionsCount = Books::where('title', $book->title)->count('edition');
+
         return view('books.show', [
-            'book' => $book
+            'book' => $book,
+            'editionsCount' => $editionsCount,
         ]);
     }
 
