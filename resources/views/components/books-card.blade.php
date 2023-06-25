@@ -18,7 +18,7 @@
                 <i class="fa-solid fa-globe"></i> {{$book->languages}}
             </div>
             <div class="text-lg mt-4">
-                <i class="fa-solid fa-building"></i> {{$book->publishing_house}}
+                <i class="fa-solid fa-building"></i> {{$book->publishing_house}} {{$book->edition}}
             </div>
             <div class="text-lg mt-4">
                 <i class="fa-solid fa-user"></i> {{$book->user->UserName}}

@@ -27,7 +27,7 @@ class BooksController extends Controller
     public function request(Request $request, Books $book)
     {
         // Store the user ID and book ID in the book_user table
-//        $book->user()->associate(auth()->user());
+
         BookUser::create([
             'user_id' => auth()->id(),
             'book_id' => $book->id
@@ -52,6 +52,7 @@ class BooksController extends Controller
             'description' => 'required',
             'publishing_house' => 'required',
             'nOfPage' => 'required',
+            'edition' => 'required',
 
         ]);
         if($request->hasFile('cover'))
@@ -85,6 +86,7 @@ class BooksController extends Controller
             'description' => 'required',
             'publishing_house' => 'required',
             'nOfPage' => 'required',
+            'edition' => 'required',
 
         ]);
         if($request->hasFile('cover'))
@@ -138,4 +140,17 @@ class BooksController extends Controller
         return view('statistics.bookCountByLanguage', compact('languages', 'counts'));
     }
 
+    public function mostRequested()
+    {
+        $mostRequested = BookUser::with('book')
+            ->select('book_id', \DB::raw('count(*) as total'))
+            ->groupBy('book_id')
+            ->orderByDesc('total')
+            ->limit(5) // Retrieve the top 5 most requested books
+            ->get();
+
+        return view('statistics.most-requested', [
+            'mostRequested' => $mostRequested,
+        ]);
+    }
 }

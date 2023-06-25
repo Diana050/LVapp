@@ -46,6 +46,8 @@ Route::get('/top-authors', [BooksController::class, 'topAuthors']);
 
 Route::get('/book-count-by-language', [BooksController::class, 'bookCountByLanguage']);
 
+Route::get('/most-requested', [BooksController::class, 'mostRequested']);
+
 
 
 //Show create form

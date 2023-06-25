@@ -43,6 +43,14 @@
             </div>
 
             <div class="mb-6">
+                <label for="edition" class="inline-block text-lg mb-2">Edition</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="edition" placeholder="Example: 2009" value="{{old('edition')}}"/>
+                @error('edition')
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                @enderror
+            </div>
+
+            <div class="mb-6">
                 <label for="languages" class="inline-block text-lg mb-2">Language</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full"
                     name="languages" value="{{old('languages')}}"/>

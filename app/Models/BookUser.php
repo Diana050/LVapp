@@ -12,4 +12,9 @@ class BookUser extends Model
     protected $table = 'book_user';
 
     protected $fillable = ['user_id', 'book_id'];
+
+    public function book()
+    {
+        return $this->belongsTo(Books::class);
+    }
 }

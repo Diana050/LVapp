@@ -36,7 +36,7 @@
                         </td>
                         <td class="px-4  text-lg text-left">
                             <div class="text-lg my-4">
-                                <i class="fa-solid fa-building"></i> {{$book->publishing_house}}
+                                <i class="fa-solid fa-building"></i> {{$book->publishing_house}} {{$book->edition}}
                             </div>
                         </td>
                     </tr>
@@ -86,17 +86,5 @@
             </div>
         </div>
     </x-card>
-{{--        <x-card class="mt-4 p-2 flex space-x-6">--}}
-{{--            <a href="/books/{{$book->id}}/edit">--}}
-{{--                <i class="fa-solid fa-pencil"></i> Edit--}}
-{{--            </a>--}}
 
-{{--            <form method="POST" action="/books/{{$book->id}}">--}}
-{{--                @csrf--}}
-{{--                @method('DELETE')--}}
-{{--                <button class="text-red-600">--}}
-{{--                    <i class="fa-solid fa-trash"></i>Delete--}}
-{{--                </button>--}}
-{{--            </form>--}}
-{{--        </x-card>--}}
 </div>

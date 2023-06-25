@@ -12,6 +12,10 @@
 
             <a href="/top-authors" class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
             >Top Authors</a>
+
+            <a href="/most-requested" class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
+            >Most requested books</a>
+
             <a href="/book-count-by-language" class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
             >Tops by languages</a>
 
