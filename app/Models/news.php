@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class news extends Model
 {
     use HasFactory;
-    protected $fillable= ['title', 'location', 'contact', 'description', 'tags', 'day', 'logo', 'user_id'];
+    protected $fillable= ['title', 'description', 'tags', 'logo', 'user_id'];
 
     public function scopeFilter($query, array $filters){
         if($filters['tag'] ?? false){
@@ -16,9 +16,7 @@ class news extends Model
         }
 
         if($filters['search'] ?? false){
-            $query->where('title', 'like', '%' . request('search') . '%')
-                ->orWhere('location', 'like', '%' . request('search') . '%')
-                ->orWhere('day', 'like', '%' . request('search') . '%');
+            $query->where('title', 'like', '%' . request('search') . '%');
         }
     }
 

@@ -37,11 +37,9 @@ class NewsController extends Controller
 
         $formFields = $request->validate([
             'title' => 'required',
-            'location' => 'required',
-            'contact' => ['required', 'email'],
             'tags' => 'required',
             'description' => 'required',
-            'day' => 'required',
+
 
         ]);
         if($request->hasFile('logo'))
@@ -70,11 +68,8 @@ class NewsController extends Controller
 
         $formFields = $request->validate([
             'title' => 'required',
-            'location' => 'required',
-            'contact' => ['required', 'email'],
             'tags' => 'required',
             'description' => 'required',
-            'day' => 'required',
 
         ]);
         if($request->hasFile('logo'))

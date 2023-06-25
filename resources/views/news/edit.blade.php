@@ -18,58 +18,18 @@
             @method('PUT')
             <div class="mb-6">
                 <label for="title" class="inline-block text-lg mb-2"
-                >Announcement Title</label
+                >Topic Title</label
                 >
                 <input
                     type="text"
                     class="border border-gray-200 rounded p-2 w-full"
                     name="title"
-                    placeholder="Example: Gather at the office day" value="{{$new->title}}"/>
+                    placeholder="Example: Book Discussion" value="{{$new->title}}"/>
                 @error('title')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                 @enderror
             </div>
 
-            <div class="mb-6">
-                <label
-                    for="location"
-                    class="inline-block text-lg mb-2"
-                >Announcement Location</label
-                >
-                <input
-                    type="text"
-                    class="border border-gray-200 rounded p-2 w-full"
-                    name="location"
-                    placeholder="Example: at the company office" value="{{$new->location}}"/>
-                @error('location')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                @enderror
-            </div>
-
-            <div class="mb-6">
-                <label for="email" class="inline-block text-lg mb-2"
-                >Contact Email</label
-                >
-                <input
-                    type="text"
-                    class="border border-gray-200 rounded p-2 w-full"
-                    name="contact" value="{{$new->contact}}"/>
-                @error('contact')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                @enderror
-            </div>
-
-            <div class="mb-6">
-                <label for="date" class="inline-block text-lg mb-2"
-                >Date</label>
-                <input
-                    type="date"
-                    class="border border-gray-200 rounded p-2 w-full"
-                    name="day" value="{{$new->day}}"/>
-                @error('day')
-                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                @enderror
-            </div>
 
             <div class="mb-6">
                 <label for="tags" class="inline-block text-lg mb-2">
@@ -79,7 +39,7 @@
                     type="text"
                     class="border border-gray-200 rounded p-2 w-full"
                     name="tags"
-                    placeholder="Example: Office, Gather, etc" value="{{$new->tags}}"/>
+                    placeholder="Example: books, talk, opinion, etc" value="{{$new->tags}}"/>
                 @error('tags')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                 @enderror
@@ -103,13 +63,13 @@
                     for="description"
                     class="inline-block text-lg mb-2"
                 >
-                    Announcement Description
+                    Topic Description
                 </label>
                 <textarea
                     class="border border-gray-200 rounded p-2 w-full"
                     name="description"
                     rows="10"
-                    placeholder="Include tasks, requirements, salary, etc">{{$new->description}}</textarea>
+                    >{{$new->description}}</textarea>
                 @error('description')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                 @enderror

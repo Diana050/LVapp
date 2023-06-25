@@ -15,6 +15,9 @@
                 <i class="fa-solid fa-book-open"></i> {{$book->nOfPage}}
             </div>
             <div class="text-lg mt-4">
+                <i class="fa-solid fa-globe"></i> {{$book->languages}}
+            </div>
+            <div class="text-lg mt-4">
                 <i class="fa-solid fa-building"></i> {{$book->publishing_house}}
             </div>
             <div class="text-lg mt-4">

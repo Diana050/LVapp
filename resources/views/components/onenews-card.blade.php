@@ -10,12 +10,7 @@
 
             <h3 class="text-2xl mb-2">{{$new->title}}</h3>
             <x-news-tag :tagsCsv="$new->tags"/>
-            <div class="text-lg my-4">
-                <i class="fa-solid fa-location-dot"></i> {{$new->location}}
-            </div>
-            <div class="text-lg my-4">
-                <i class="fa-solid fa-calendar"></i> {{$new->day}}
-            </div>
+
             <div class="border border-gray-200 w-full mb-6"></div>
             <div>
                 <h3 class="text-3xl font-bold mb-4">

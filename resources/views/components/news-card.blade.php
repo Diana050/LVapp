@@ -9,11 +9,9 @@
             </h3>
                 <x-news-tag :tagsCsv="$new->tags"/>
             <div class="text-lg mt-4">
-                <i class="fa-solid fa-location-dot"></i> {{$new->location}}
+                <i class="fa-solid fa-document"></i> {{ Str::limit($new->description, 100) }}
             </div>
-            <div class="text-lg mt-4">
-                <i class="fa-solid fa-calendar"></i> {{$new->day}}
-            </div>
+
         </div>
     </div>
 </x-card>

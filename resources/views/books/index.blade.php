@@ -16,7 +16,7 @@
     <div class="mt-6 p-4">
         {{$books->links()}}
     </div>
-    </body>
+
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-wiget@0/build/assets/css/chat.min.css">
     <script>
         var botmanWidget ={
