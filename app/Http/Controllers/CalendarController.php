@@ -16,6 +16,8 @@ class CalendarController extends Controller
             $events[] = [
             'id' => $booking->id,
             'title' => $booking->title,
+            'links' => $booking->links,
+            'description' => $booking->description,
             'start' => $booking->start_date,
             'end' => $booking->end_date,
             'user' => $booking->user_id,
@@ -27,10 +29,14 @@ class CalendarController extends Controller
     public function store(Request $request){
             $request->validate([
                 'title' => 'required',
+                'links' => 'required',
+                'description' => 'required',
 
             ]);
             $booking = Booking::create([
                 'title' => $request->title,
+                'links' => $request->links,
+                'description' => $request->description,
                 'start_date' => $request->start_date,
                 'end_date' => $request->end_date,
             ]);
