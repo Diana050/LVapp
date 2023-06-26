@@ -33,9 +33,9 @@
                                 </div>
                             </td>
                             <td class="px-4  text-lg text-left">
-                                @if($book->status === 'sale')
+                                @if($book->status === 'sale' && $statistics)
                                 <div class="text-lg my-4">
-                                    <strong>Highest Price:</strong> {{$statistics->highest_price}}
+                                    <strong>Highest Price:</strong> {{$statistics->highest_price}}<i class="fa-solid fa-euro"></i>
                                 </div>
                                 @endif
                             </td>
@@ -53,13 +53,17 @@
                             </td>
                             <td class="px-4  text-lg text-left">
                                 <div class="text-lg my-4">
-                                    <i class="fa-solid fa-exchange"></i> {{$book->status}}{{$book->price}}
+                                    <i class="fa-solid fa-exchange"></i> {{$book->status}}
+                                    @if($book->status === 'sale')
+                                        {{$book->price}}<i class="fa-solid fa-euro"></i>
+                                    @endif
+
                                 </div>
                             </td>
                             <td class="px-4  text-lg text-left">
-                                @if($book->status === 'sale')
+                                @if($book->status === 'sale' && $statistics)
                                 <div class="text-lg my-4">
-                                    <strong>Lowest Price:</strong> {{$statistics->lowest_price}}
+                                    <strong>Lowest Price:</strong> {{$statistics->lowest_price}}<i class="fa-solid fa-euro"></i>
                                 </div>
                                 @endif
                             </td>
@@ -79,9 +83,9 @@
 
                             </td>
                             <td class="px-4  text-lg text-left">
-                                @if($book->status === 'sale')
+                                @if($book->status === 'sale' && $statistics)
                                 <div class="text-lg my-4">
-                                    <strong>Average Price:</strong> {{$statistics->average_price}}
+                                    <strong>Average Price:</strong> {{ number_format($statistics->average_price, 2) }} <i class="fa-solid fa-euro"></i>
                                 </div>
                                 @endif
                             </td>

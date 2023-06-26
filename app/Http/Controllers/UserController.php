@@ -20,9 +20,9 @@ class UserController extends Controller
     //Store Create new user
     public function store(Request $request){
         $formFields =  $request->validate([
-            'UserName' => ['required', 'min:3'],
+            'UserName' => ['required', 'min:3', Rule::unique('users', 'UserName')],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => ['required', 'confirmed', 'min:8']
+            'password' => ['required', 'confirmed', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/']
         ]);
 
         //Hash password

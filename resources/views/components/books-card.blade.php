@@ -21,7 +21,10 @@
                 <i class="fa-solid fa-building"></i> {{$book->publishing_house}} {{$book->edition}}
             </div>
             <div class="text-lg mt-4">
-                <i class="fa-solid fa-exchange"></i> {{$book->status}} {{$book->price}}
+                <i class="fa-solid fa-exchange"></i> {{$book->status}}
+                @if($book->status === 'sale')
+                    {{$book->price}}<i class="fa-solid fa-euro"></i>
+                @endif
             </div>
             <div class="text-lg mt-4">
                 <i class="fa-solid fa-user"></i> {{$book->user->UserName}}

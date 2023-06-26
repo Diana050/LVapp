@@ -23,6 +23,7 @@ class BooksController extends Controller
 
         // Get statistics for books with status "sale"
         $statistics = Books::where('status', 'sale')
+            ->where('title', $book->title)
             ->select(
                 \DB::raw('MAX(price) as highest_price'),
                 \DB::raw('MIN(price) as lowest_price'),
