@@ -3,11 +3,16 @@
 <x-layout>
     @include('partials._heroBooks')
     @include('partials._serch')
+
+    @if(count($books)==0)
+        <x-card class="w-full">
+            <p class="py-8  text-center text-lg">No books found</p>
+        </x-card>
+
+    @endif
     <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
 
-        @if(count($books)==0)
-            <p>No books found</p>
-        @endif
+
         @foreach($books as $book)
 
             <x-books-card :book="$book"/>

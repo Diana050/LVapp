@@ -19,7 +19,7 @@ class ChatBotController extends Controller
             $bot->reply('Hello! How can I assist you today?');
         });
         $botman->hears('.*calendar|talk|program|agenda.*', function ($bot){
-            $bot->reply('In the Book Talk Program you can find the agenda for all the existent meetings');
+            $bot->reply('If you are an already register user in the Book Talk Program you can find the agenda for all the existent meetings');
             $bot->reply('You can also create a meeting and place it in the calendar');
         });
         $botman->hears('.*join|reservation|appointment|register.*', function ($bot){
@@ -32,7 +32,7 @@ class ChatBotController extends Controller
         $botman->hears('.*books.*', function ($bot){
             $bot->reply('In the books page you can find all the books that are ready to be lend or sail by our community. Every book has its own page where you can find more details and a form ready for you to request the book ');
         });
-        $botman->hears('.*request|obtain|borrow|buy.*', function ($bot){
+        $botman->hears('.*request|obtain|borrow|buy|lent.*', function ($bot){
             $bot->reply('You can find the request a book form in the book details page and after completing the form you request will be successfully created.');
         });
         $botman->hears('.*read|share|app|application|about.*', function ($bot){

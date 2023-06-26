@@ -51,6 +51,16 @@ class BooksController extends Controller
         return redirect()->back()->with('message', 'Book requested successfully!');
     }
 
+
+    public function requestsList()
+    {
+        $requests = BookUser::with('book', 'book.user')
+            ->where('user_id', auth()->id())
+            ->get();
+
+        return view('books.request', compact('requests'));
+    }
+
     public function create(){
         return view('books.create');
     }

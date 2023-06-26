@@ -21,6 +21,26 @@ class ReviewsController extends Controller
         ]);
     }
 
+//    public function store(Request $request)
+//    {
+//        // Validate the form data
+//        $validatedData = $request->validate([
+//            'user_id' => 'required|integer',
+//            'books_id' => 'required|integer',
+//            'review' => 'required|string|max:255',
+//        ]);
+//
+//        // Create a new comment instance and fill it with the validated data
+//        $review= new Reviews();
+//        $review->fill($validatedData);
+//
+//        // Save the comment in the database
+//        $review->save();
+//
+//        // Redirect back to the same page with success message
+//        return back()->with('success', 'Comment posted successfully!');
+//    }
+
     public function store(Request $request)
     {
         // Validate the form data
@@ -31,13 +51,13 @@ class ReviewsController extends Controller
         ]);
 
         // Create a new comment instance and fill it with the validated data
-        $review= new Reviews();
+        $review = new Reviews();
         $review->fill($validatedData);
 
         // Save the comment in the database
         $review->save();
 
         // Redirect back to the same page with success message
-        return back()->with('success', 'Comment posted successfully!');
+        return back()->with('success', 'Review posted successfully!');
     }
 }

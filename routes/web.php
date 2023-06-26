@@ -21,12 +21,10 @@ use App\Models\news;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//bot
-//Route::get('/', function (){
-//    return view('botman-welcome');
-//});
+
 
 Route::match(['get','post'], '/botman', [ChatBotController::class, 'index']);
+
 //Index
 Route::get('/news', [NewsController::class, 'index']);
 
@@ -36,11 +34,13 @@ Route::get('/manage', [ManageController::class, 'index'])->middleware('auth');
 
 Route::get('/userProfile', [UserController::class, 'index'])->middleware('auth');
 
+Route::get('/myRequest', [BooksController::class, 'requestsList'])->middleware('auth');
+
 Route::get('/comments' , [CommentsController::class, 'index'])->middleware('auth');
 
 Route::get('/reviews' , [ReviewsController::class, 'index'])->middleware('auth');
 
-Route::get('/calendar' , [CalendarController::class, 'index']);
+Route::get('/calendar' , [CalendarController::class, 'index'])->middleware('auth');
 
 Route::get('/top-authors', [BooksController::class, 'topAuthors']);
 
@@ -117,13 +117,4 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 
-
-//    Route::get('/test-connection', function () {
-//        try {
-//            DB::connection()->getPdo();
-//            return 'Database connection successful.';
-//        } catch (\Exception $e) {
-//            return 'Database connection failed: ' . $e->getMessage();
-//        }
-//    });
 

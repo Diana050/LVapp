@@ -1,6 +1,8 @@
+
 <x-layout>
 
     <x-card>
+        <a href="{{ url()->previous() }}" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back</a>
         <form method="POST" action="{{ route('comments.store', ['news_id' => $newsId]) }}">
             @csrf
             <div class="relative border-2 border-gray-100 m-4 rounded-lg">

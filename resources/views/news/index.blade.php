@@ -1,11 +1,15 @@
 <x-layout>
     @include('partials._hero')
     @include('partials._serch')
+
+    @if(count($news)==0)
+        <x-card class="w-full">
+            <p class="py-8  text-center text-lg">No news found</p>
+        </x-card>
+
+    @endif
     <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
 
-        @if(count($news)==0)
-            <p>No news found</p>
-        @endif
         @foreach($news as $new)
             <x-news-card :new="$new"/>
         @endforeach

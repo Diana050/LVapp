@@ -21,7 +21,7 @@
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="title"
-                placeholder="Example: Book Discussion" value="{{old('title')}}"/>
+                placeholder="Example: Book Discussion"  value="{{old('title')}}"/>
             @error('title')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
