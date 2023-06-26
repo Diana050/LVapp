@@ -1,4 +1,4 @@
-    @props(['book' , 'editionsCount'])
+    @props(['book' , 'editionsCount' , 'statistics'])
 
 
     <div class="mx-4">
@@ -14,7 +14,6 @@
                     <div class="flex flex-col items-center justify-center text-center">
                         <x-books-tag :tagsCsv="$book->tags"/>
                     </div>
-
 
                     <table>
                         <tr>
@@ -33,6 +32,13 @@
                                     <i ></i> Number of Editions: {{$editionsCount}}
                                 </div>
                             </td>
+                            <td class="px-4  text-lg text-left">
+                                @if($book->status === 'sale')
+                                <div class="text-lg my-4">
+                                    <strong>Highest Price:</strong> {{$statistics->highest_price}}
+                                </div>
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <td class="px-4  text-lg text-left">
@@ -45,6 +51,18 @@
                                     <i class="fa-solid fa-building"></i> {{$book->publishing_house}} {{$book->edition}}
                                 </div>
                             </td>
+                            <td class="px-4  text-lg text-left">
+                                <div class="text-lg my-4">
+                                    <i class="fa-solid fa-exchange"></i> {{$book->status}}{{$book->price}}
+                                </div>
+                            </td>
+                            <td class="px-4  text-lg text-left">
+                                @if($book->status === 'sale')
+                                <div class="text-lg my-4">
+                                    <strong>Lowest Price:</strong> {{$statistics->lowest_price}}
+                                </div>
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <td class="px-4  text-lg text-left">
@@ -56,6 +74,16 @@
                                 <div class="text-lg my-4">
                                     <i class="fa-solid fa-user"></i> {{$book->user->UserName}}
                                 </div>
+                            </td>
+                            <td>
+
+                            </td>
+                            <td class="px-4  text-lg text-left">
+                                @if($book->status === 'sale')
+                                <div class="text-lg my-4">
+                                    <strong>Average Price:</strong> {{$statistics->average_price}}
+                                </div>
+                                @endif
                             </td>
                         </tr>
 

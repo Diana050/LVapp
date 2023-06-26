@@ -21,6 +21,9 @@
                 <i class="fa-solid fa-building"></i> {{$book->publishing_house}} {{$book->edition}}
             </div>
             <div class="text-lg mt-4">
+                <i class="fa-solid fa-exchange"></i> {{$book->status}} {{$book->price}}
+            </div>
+            <div class="text-lg mt-4">
                 <i class="fa-solid fa-user"></i> {{$book->user->UserName}}
             </div>
         </div>

@@ -21,9 +21,19 @@ class BooksController extends Controller
     public function show(Books $book){
         $editionsCount = Books::where('title', $book->title)->count('edition');
 
+        // Get statistics for books with status "sale"
+        $statistics = Books::where('status', 'sale')
+            ->select(
+                \DB::raw('MAX(price) as highest_price'),
+                \DB::raw('MIN(price) as lowest_price'),
+                \DB::raw('AVG(price) as average_price')
+            )
+            ->first();
+
         return view('books.show', [
             'book' => $book,
             'editionsCount' => $editionsCount,
+            'statistics' => $statistics,
         ]);
     }
 
@@ -56,6 +66,8 @@ class BooksController extends Controller
             'publishing_house' => 'required',
             'nOfPage' => 'required',
             'edition' => 'required',
+            'status' => 'required',
+            'price' => 'nullable|integer',
 
         ]);
         if($request->hasFile('cover'))
@@ -90,6 +102,8 @@ class BooksController extends Controller
             'publishing_house' => 'required',
             'nOfPage' => 'required',
             'edition' => 'required',
+            'status' => 'required',
+            'price' => 'nullable|integer',
 
         ]);
         if($request->hasFile('cover'))

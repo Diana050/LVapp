@@ -69,6 +69,23 @@
             </div>
 
             <div class="mb-6">
+                <label for="status" class="inline-block text-lg mb-2">Status</label>
+                <select class="border border-gray-200 rounded p-2 w-full" name="status">
+                    <option value="sale" {{ old('status') === 'sale' ? 'selected' : '' }}>For Sale</option>
+                    <option value="lent" {{ old('status') === 'lent' ? 'selected' : '' }}>Lent</option>
+                </select>
+                @error('status')
+                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-6">
+                <label for="price" class="inline-block text-lg mb-2">Price</label>
+                <input type="number" class="border border-gray-200 rounded p-2 w-full" name="price" placeholder="Example: 10" value="{{ old('price') }}"/>
+
+            </div>
+
+            <div class="mb-6">
                 <label for="tags" class="inline-block text-lg mb-2">
                     Tags (Comma Separated)
                 </label>
